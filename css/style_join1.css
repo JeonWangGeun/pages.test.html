@@ -1,0 +1,340 @@
+/* Header 시작 */
+
+header {
+  width: 100%;
+  height: 120px;
+  background-color: rgb(246, 245, 239, 1);
+  position: fixed;
+  z-index: 10;
+}
+
+#header_container {
+  width: 1100px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#header_container > div#menu {
+  margin: 0;
+  margin-left: 110px;
+}
+
+#header_container > div#menu > div {
+  margin: 0;
+  margin-top: 5px;
+  display: flex;
+}
+
+#header_container > div#menu > div > ul {
+  display: flex;
+}
+
+/* 첫번째 메뉴 */
+
+#header_container > div#menu > div:first-of-type {
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 50px;
+}
+
+#header_container > div#menu > div:first-of-type > img {
+  cursor: pointer;
+}
+
+#header_container > div#menu > div > ul#menu_first > a {
+  text-decoration: none;
+  color: #000;
+}
+
+#header_container > div#menu > div > ul#menu_first > a:hover {
+  text-decoration: underline;
+}
+
+#header_container > div#menu > div > ul#menu_first > a > li {
+  padding: 0 20px;
+  border-left: 1px solid #000;
+  font-size: 14px;
+}
+
+#header_container > div#menu > div > ul#menu_first > a:nth-of-type(1) > li {
+  border-left: none;
+}
+
+/* 두번째 메뉴 */
+
+#header_container > div#menu > div > ul#menu_second > a {
+  text-decoration: none;
+  color: #000;
+  margin-top: 10px;
+}
+
+#menu_second > a > li {
+  padding: 10px 20px 47px 20px;
+  font-size: 15px;
+}
+
+/* 숨은 메뉴 */
+div.hide_menu {
+  background-color: #2c2a29;
+  max-height: 0;
+  overflow: hidden;
+  /* transition: max-height 1s; */
+}
+
+div.hide_menu > #hide_container {
+  display: flex;
+  width: 1100px;
+  margin: 0 auto;
+}
+
+div.hide_menu > #hide_container > ul {
+  margin-right: 100px;
+  margin-bottom: 20px;
+}
+
+div.hide_menu:last-of-type > #hide_container > ul {
+  margin-right: auto;
+}
+
+div.hide_menu > #hide_container > ul > li {
+  color: #999;
+  margin: 10px 0;
+  font-size: 11px;
+}
+
+div.hide_menu > #hide_container > ul > li:nth-of-type(1) {
+  color: #fff;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+/* main 스크립트 */
+.hover {
+  background-color: #2c2a29;
+  text-decoration: underline;
+  color: #669900;
+}
+
+.hide_menu.visible {
+  max-height: 300px; /* 적절한 높이로 조정 */
+  z-index: 10;
+}
+
+/* Header 끝 */
+
+/* main 시작 */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 120px;
+  height: fit-content;
+}
+
+#container > h4 {
+  text-align: center;
+  font-size: 28px;
+  margin: 40px 0;
+}
+
+#container > div {
+  padding: 30px 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 600px;
+}
+
+#container > div > p {
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+#container > form {
+  border: 1px solid #ddd;
+  text-align: center;
+  width: 600px;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+#container > form > div.join1_check_txt {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#container > form > div > b {
+  font-size: 20px;
+}
+
+#container > form > div > b > span {
+  color: #006241;
+}
+
+#container > form > div > input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+#container > form > div.join1_text {
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+  margin-bottom: 30px;
+  text-align: left;
+  padding: 20px 10px;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+#container > form > div.join1_note {
+  line-height: 20px;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+#container > form > div.join1_note > ul > li {
+  list-style-type: disc;
+  text-align: left;
+  font-size: 13px;
+}
+
+#container > form > a {
+  text-decoration: none;
+}
+
+#container > form > div#button {
+  border: 1px solid #063;
+  background-color: #063;
+  height: 60px;
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px 0px 20px 0;
+  font-weight: bold;
+}
+
+#container > form > div#button:hover {
+  text-decoration: underline;
+}
+/* main 끝 */
+
+/* footer 시작 */
+/* footer_menu */
+footer {
+  position: relative;
+  top: 120px;
+}
+
+#footer_menu {
+  position: relative;
+  height: 300px;
+  background-color: #2c2a29;
+  display: flex;
+  justify-content: center;
+}
+
+#footer_menu > ul {
+  margin-top: 30px;
+  margin-right: 120px;
+}
+
+#footer_menu > ul > li {
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+#footer_menu > ul > li:hover {
+  text-decoration: underline;
+}
+
+#footer_menu > ul > li:first-of-type {
+  color: #fff;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+#footer_img {
+  display: flex;
+  justify-content: center;
+  background-color: #282828;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+#footer_img > img {
+  cursor: pointer;
+}
+
+#footer_etc {
+  background-color: #2c2a29;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#footer_etc > div > div:first-of-type {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#footer_etc > div > div:first-of-type > b {
+  color: #cccccc;
+  font-size: 12px;
+  margin-top: 30px;
+  padding: 0 10px;
+  border-right: 1px solid #393939;
+  cursor: pointer;
+}
+#footer_etc > div > div:first-of-type > b:nth-of-type(1),
+#footer_etc > div > div:first-of-type > b:nth-of-type(4) {
+  color: #00b04c;
+}
+#footer_etc > div > div:first-of-type > b:last-of-type {
+  border-right: none;
+}
+
+#footer_etc > div > div:nth-of-type(2) > b {
+  color: #fff;
+  font-size: 12px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  padding: 5px 20px;
+  margin: 0 1px;
+  cursor: pointer;
+}
+#footer_etc > div > div:nth-of-type(2) > b:hover {
+  text-decoration: underline;
+}
+
+#footer_etc > div > div:nth-of-type(3) {
+  margin-top: 30px;
+}
+
+#footer_etc > div > div:nth-of-type(3) > b {
+  color: #999999;
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+#footer_etc > div > div:nth-of-type(4) {
+  margin-top: 20px;
+}
+
+#footer_etc > div > div:nth-of-type(4) > b {
+  color: #999999;
+  font-size: 12px;
+  margin: 0 10px;
+}
