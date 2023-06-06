@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style_main.css" />
 
+    <script src="https://kit.fontawesome.com/c8352bbe39.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="./script/script_main.js"></script>
   </head>
@@ -269,16 +270,20 @@
       </div>
       <section id="section_1">
         <div>
-          <img src="./assests/img/2023_summer1_top_logo.png" alt="2023_summer1_top_logo" />
+          <img src="./assests/img/2023_summer1_top_logo.png" alt="2023_summer1_top_logo" id="summer_on_logo" />
           <div>
             <a href="">자세히보기</a>
           </div>
         </div>
         <div class="drink_img">
-          <img src="./assests/img/2023_summer1_top_drink4.png" alt="2023_summer1_top_drink4" />
-          <img src="./assests/img/2023_summer1_top_drink1.png" alt="2023_summer1_top_drink1" />
-          <img src="./assests/img/2023_summer1_top_drink2.png" alt="2023_summer1_top_drink2" />
-          <img src="./assests/img/2023_summer1_top_drink3_230427.png" alt="2023_summer1_top_drink3" />
+          <img src="./assests/img/2023_summer1_top_drink4.png" alt="2023_summer1_top_drink4" id="summer_drink1" />
+          <img src="./assests/img/2023_summer1_top_drink1.png" alt="2023_summer1_top_drink1" id="summer_drink2" />
+          <img src="./assests/img/2023_summer1_top_drink2.png" alt="2023_summer1_top_drink2" id="summer_drink3" />
+          <img
+            src="./assests/img/2023_summer1_top_drink3_230427.png"
+            alt="2023_summer1_top_drink3"
+            id="summer_drink4"
+          />
         </div>
       </section>
       <section id="section_2">
@@ -298,29 +303,25 @@
           <div class="event event1">
             <div class="event-image"></div>
             <div>
-              <p>이벤트1</p>
-              <p>블라블라블라~</p>
+              <p>SUMMER EVENT</p>
             </div>
           </div>
           <div class="event event2">
             <div class="event-image"></div>
             <div>
-              <p>이벤트2</p>
-              <p>블라블라블라~</p>
+              <p>SUMMER EVENT</p>
             </div>
           </div>
           <div class="event event3">
             <div class="event-image"></div>
             <div>
-              <p>이벤트3</p>
-              <p>블라블라블라~</p>
+              <p>SUMMER EVENT</p>
             </div>
           </div>
           <div class="event event4">
             <div class="event-image"></div>
             <div>
-              <p>이벤트4</p>
-              <p>블라블라블라~</p>
+              <p>SUMMER EVENT</p>
             </div>
           </div>
         </div>
@@ -494,15 +495,45 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <h2>스타벅스와 함께하는</h2>
-        <h1>영화 관람</h1>
+        <h1>무료영화 이벤트</h1>
         <div>
           <img src="" alt="" />
         </div>
-        <p>모달 내용</p>
-        <img src="./assests/img/drink1.png" alt="2023_summer1_top_drink1" />
-        <img src="./assests/img/drink2.png" alt="2023_summer1_top_drink2" />
-        <img src="./assests/img/drink3.png" alt="2023_summer1_top_drink3" />
-        <img src="./assests/img/drink4.png" alt="2023_summer1_top_drink4" />
+        <div class="text-content">
+          <p><b>기&nbsp;&nbsp;&nbsp;&nbsp;간</b> <b>oooo. o. o ~ oooo. o. o</b></p>
+          <p><b>대&nbsp;&nbsp;&nbsp;&nbsp;상</b> <b>스타벅스 전 회원</b></p>
+          <p>
+            <b>내&nbsp;&nbsp;&nbsp;&nbsp;용</b>
+            <b
+              >회원 계정에 등록된 스타벅스 카드이용하여 결제시,
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 총
+              결제금액 o만원당 영화표 1개 무료 증정</b
+            >
+          </p>
+          <p>
+            <b>적용 품목</b>
+            <b
+              >음료, 푸드, 머그, 텀블러, 원두, 등 스타벅스에서
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매하는
+              모든 상품</b
+            >
+          </p>
+        </div>
+        <img
+          src="./assests/img/189-1893420_coffee-frappuccino-starbucks-drawing-download-free-starbucks-iced-removebg-preview.png"
+          alt=""
+          class="coffee_eventimg"
+        />
+        <img
+          src="./assests/img/pngtree-love-movie-ticket-decoration-illustration-png-image_4758449-removebg-preview.png"
+          alt=""
+          class="ticket_eventimg"
+        />
+        <button class="event_button">이벤트참여</button>
+        <div class="movie">
+          <p><b id="date"></b> 주간 박스오피스</p>
+          <table id="movie_list"></table>
+        </div>
       </div>
     </div>
   </body>

@@ -15,6 +15,47 @@ $(document).ready(function () {
     });
   }
 
+  // SUMMER ON
+  $("#summer_on_logo").css({ opacity: 0 });
+  $("#summer_drink1").css({ opacity: 0 });
+  $("#summer_drink2").css({ opacity: 0 });
+  $("#summer_drink3").css({ opacity: 0 });
+  $("#summer_drink4").css({ opacity: 0 });
+
+  $.when($("#summer_on_logo").animate({ opacity: 1 }, 500))
+    .then(function () {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, 100);
+      });
+    })
+    .then(function () {
+      return $("#summer_drink2").animate({ opacity: 1 }, 500);
+    })
+    .then(function () {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, 200);
+      });
+    })
+    .then(function () {
+      return $("#summer_drink3").animate({ opacity: 1 }, 500);
+    })
+    .then(function () {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, 200);
+      });
+    })
+    .then(function () {
+      return $("#summer_drink1").animate({ opacity: 1 }, 500);
+    })
+    .then(function () {
+      return new Promise(function (resolve) {
+        setTimeout(resolve, 200);
+      });
+    })
+    .then(function () {
+      return $("#summer_drink4").animate({ opacity: 1 }, 500);
+    });
+
   // 스타벅스 프로모션 버튼
   var promotionBtn = true;
   $("#promotion-btn").click(function () {
@@ -29,14 +70,29 @@ $(document).ready(function () {
   });
 
   // 스타벅스 프로모션 버튼 눌렀을 떄 페이지
+  $(".event").css({ left: "915px" });
   $("#promotionpage-btn1").click(function () {
-    $(".event").animate({ left: "610px" }, 1000);
+    if ($(".event").eq(3).css("left") == "-915px") {
+      $(".event").animate({ left: "-305px" }, 1000);
+    } else if ($(".event").eq(3).css("left") == "-305px") {
+      $(".event").animate({ left: "305px" }, 1000);
+    } else if ($(".event").eq(3).css("left") == "305px") {
+      $(".event").animate({ left: "915px" }, 1000);
+    } else {
+      $(".event").css({ left: "-915px" });
+    }
   });
   $("#promotionpage-btn2").click(function () {
-    $(".event").animate({ left: "-610px" }, 1000);
+    if ($(".event").eq(3).css("left") == "915px") {
+      $(".event").animate({ left: "305px" }, 1000);
+    } else if ($(".event").eq(3).css("left") == "305px") {
+      $(".event").animate({ left: "-305px" }, 1000);
+    } else if ($(".event").eq(3).css("left") == "-305px") {
+      $(".event").animate({ left: "-915px" }, 1000);
+    } else {
+      $(".event").css({ left: "915px" });
+    }
   });
-
-  // main scroll animation
 
   // 웨스트 자바 프리앙안 section_4
   $("#coffee_img").css({ opacity: "0" });
@@ -111,7 +167,7 @@ $(document).ready(function () {
 
     if (scrollPosition + windowHeight >= reserve_imagePositionTop && !reserve_imgAnimation) {
       reserve_imgAnimation = true;
-      $("#reserve_img").animate({ opacity: "1" }, 1500);
+      $("#reserve_img").animate({ opacity: "1" }, 2000);
     }
   }
 
@@ -131,12 +187,12 @@ $(document).ready(function () {
 
     if (scrollPosition + windowHeight >= main_last_imagePositionTop && !main_last_imgAnimation) {
       main_last_imgAnimation = true;
-      $("#main_last_img1").animate({ opacity: "1" }, 1500);
-      $("#main_last_img2").animate({ opacity: "1" }, 1500);
-      $("#main_last_img3").animate({ opacity: "1" }, 1500);
-      $("#main_last_img4").animate({ opacity: "1" }, 1500);
-      $("#main_last_txt1").animate({ opacity: "1", left: "-150px" }, 1500);
-      $("#main_last_txt2").animate({ opacity: "1", left: "-530px" }, 2000);
+      $("#main_last_img1").animate({ opacity: "1" }, 2000);
+      $("#main_last_img2").animate({ opacity: "1" }, 2000);
+      $("#main_last_img3").animate({ opacity: "1" }, 2000);
+      $("#main_last_img4").animate({ opacity: "1" }, 2000);
+      $("#main_last_txt1").animate({ opacity: "1", left: "-150px" }, 2000);
+      $("#main_last_txt2").animate({ opacity: "1", left: "-530px" }, 2500);
     }
   }
 
@@ -150,13 +206,63 @@ $(document).ready(function () {
 
   $(".event-image").click(function () {
     $("#modal").css("display", "block");
+
+    // 박스오피스
+    const key = "4353b5438229646851854a6fc3165c51";
+    let currentDate = new Date();
+    let lastWeek = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+    let year = lastWeek.getFullYear();
+    let month = String(lastWeek.getMonth() + 1).padStart(2, "0"); // 월은 0부터 시작하므로 1을 더해줍니다.
+    let day = String(lastWeek.getDate()).padStart(2, "0");
+
+    let url_date = `${year}${month}${day}`;
+    let url =
+      "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key=" +
+      key +
+      "&targetDt=" +
+      url_date;
+
+    let options = { year: "numeric", month: "numeric", day: "numeric" };
+    let formattedDate = currentDate.toLocaleDateString(undefined, options);
+    $("#date").text(formattedDate);
+
+    $.ajax({
+      url: url,
+      type: "GET",
+      success: function (data, status) {
+        status == "success" && parseJSON(data);
+      },
+    });
+
+    function parseJSON(jsonObj) {
+      let table = [];
+      let movie = jsonObj.boxOfficeResult.weeklyBoxOfficeList;
+      for (let i = 0; i < movie.length; i++) {
+        table.push("<tr>");
+        table.push(`<td>${movie[i].rankOldAndNew === "OLD" ? "-" : "<b>NEW</b>"}</td>`);
+        table.push(`<td>${movie[i].rank}</td>`);
+        table.push(`<td>${movie[i].movieNm}</td>`);
+        table.push(
+          `<td>${
+            movie[i].rankInten == 0
+              ? "-"
+              : movie[i].rankInten > 0
+              ? '<i class="fas fa-caret-up" style="color: #ff0000"></i>\n' + movie[i].rankInten
+              : '<i class="fas fa-caret-up fa-rotate-180" style="color: #0000ff;"></i>\n' + movie[i].rankInten.slice(1)
+          }</td>`
+        );
+        table.push("</tr>");
+      }
+
+      $("#movie_list").html(table.join("\n"));
+    }
   });
 
   $(".close").click(function () {
     $("#modal").css("display", "none");
   });
 
-  $("#modalButton").click(function () {
+  $(".event_button").click(function () {
     // 확인 버튼 클릭 시 동작
     // 여기에 원하는 동작을 추가합니다.
     $("#modal").css("display", "none");
